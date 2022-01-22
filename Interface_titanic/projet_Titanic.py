@@ -68,7 +68,7 @@ def bulle():
             time.sleep(0.1)
             canvas_pour_image.update()
             i=i+1
-        time.sleep(8)
+        time.sleep(4)
         i=0
         #déplacement de la bulle 2
         while i<45:
@@ -76,7 +76,7 @@ def bulle():
             time.sleep(0.1)
             canvas_pour_image.update()
             i=i+1
-        time.sleep(8)
+        time.sleep(4)
         i=0
         #déplacement de la bulle 3
         while i<45:
