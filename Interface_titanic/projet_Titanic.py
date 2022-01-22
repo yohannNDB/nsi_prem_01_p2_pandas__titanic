@@ -58,7 +58,7 @@ def bulle():
         canvas_pour_image.pack(fill='both',expand=True)
 
         #cette bulle utilise une image différente mais est toujours placé à un endroit voulu
-        bulle3 = canvas_pour_image.create_image(200,450,image= image_de_la_petite_bulle,anchor='nw')
+        bulle3 = canvas_pour_image.create_image(150,450,image= image_de_la_petite_bulle,anchor='nw')
         canvas_pour_image.pack(fill='both',expand=True)
 
         #déplacement de la bulle 1
@@ -68,7 +68,7 @@ def bulle():
             time.sleep(0.1)
             canvas_pour_image.update()
             i=i+1
-        time.sleep(4)
+        canvas_pour_image.after(4000)
         i=0
         #déplacement de la bulle 2
         while i<45:
@@ -76,7 +76,7 @@ def bulle():
             time.sleep(0.1)
             canvas_pour_image.update()
             i=i+1
-        time.sleep(4)
+        canvas_pour_image.after(4000)
         i=0
         #déplacement de la bulle 3
         while i<45:
@@ -84,7 +84,7 @@ def bulle():
             time.sleep(0.1)
             canvas_pour_image.update()
             i=i+1
-        time.sleep(4)
+        canvas_pour_image.after(4000)
 
 
 image_bouton = PhotoImage(file="bouton_fond2.gif")
