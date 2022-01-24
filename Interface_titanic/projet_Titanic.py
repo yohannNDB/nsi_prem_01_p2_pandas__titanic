@@ -168,20 +168,6 @@ def CreateNewWindow():
     button_rechercher.grid(row=17,column=0,sticky=W)
 
 
-"""
-image = PhotoImage(file = "souligner_chic.png")
-canvas = Canvas(window,width=600,height=300, bg='#048B9A', bd = 0)
-canvas.create_image(200/2,200/2,image = image)
-canvas.grid(row=1,column=0,sticky=N)
-"""
-
-"""
-label_window.grid(row=0,column=0)
-
-
-canvas.grid(row=0,column=0)
-
-"""
 
 #boutton "commencer l'aventure" ansi que son placement dans la fenêtre
 button1 = Button(window,image= image_bouton,borderwidth=0,highlightthickness=0,command=CreateNewWindow)
