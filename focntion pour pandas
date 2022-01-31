@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+#Calculez la probabilité de survie pour les passagers masculins et féminins, puis tracez le résultat.
+
 
 male_female_percentages = male_female_survival/total_male_female
 print male_female_percentages
@@ -15,12 +17,15 @@ prob_gender.set_ylabel('Sex');
 
 
 
-
+#Trouver les probabilités pour chaque classe.
+#Primez d'abord le nombre total de passagers dans chaque classe, puis les probabilités.
 num_class = titanic['Class'].value_counts()
 print num_class
 percent_survived = class_survival/num_class
 percent_survived
 
+
+#Tracer les probabilités résultantes
 class_survival = percent_survived.plot(kind='bar',title='Chance of Survival per Class')
 
 class_survival.set_xlabel('Class');
