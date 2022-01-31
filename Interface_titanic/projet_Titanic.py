@@ -1,4 +1,3 @@
-# Créé par fortn, le 31/12/2021 en Python 3.7
 from tkinter import *
 from random import randint,choice
 import string
@@ -39,52 +38,55 @@ canvas_pour_image.create_text(20,150,text="Bienvenue dans l'application de stati
 canvas_pour_image.pack(fill='both',expand=True)
 
 #(fonction en cours)weight_au_harsard_pour_bulles = random.randint(0,200)
-
+ok_pour_bulle=True
 
 #création des bulles ainsi qu leurs déplacements
 def bulle():
-    for i in range (10):
-        #image des bulles
-        image_de_la_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=300)
-        image_de_la_petite_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=100)
+    while ok_pour_bulle==True:
+        for i in range (1):
+            #image des bulles
+            image_de_la_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=300)
+            image_de_la_petite_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=100)
+        
 
 
-        #creation de trois canvas différents pour acceuillir les bulle 1,2,3
-        bulle = canvas_pour_image.create_image(0,450,image= image_de_la_bulle,anchor='nw')
-        canvas_pour_image.pack(fill='both',expand=True)
+            #creation de trois canvas différents pour acceuillir les bulle 1,2,3
+            bulle = canvas_pour_image.create_image(0,450,image= image_de_la_bulle,anchor='nw')
+            canvas_pour_image.pack(fill='both',expand=True)
 
 
-        bulle2 = canvas_pour_image.create_image(500,450,image= image_de_la_bulle,anchor='nw')
-        canvas_pour_image.pack(fill='both',expand=True)
+            bulle2 = canvas_pour_image.create_image(500,450,image= image_de_la_bulle,anchor='nw')
+            canvas_pour_image.pack(fill='both',expand=True)
 
-        #cette bulle utilise une image différente mais est toujours placé à un endroit voulu
-        bulle3 = canvas_pour_image.create_image(150,450,image= image_de_la_petite_bulle,anchor='nw')
-        canvas_pour_image.pack(fill='both',expand=True)
+            #cette bulle utilise une image différente mais est toujours placé à un endroit voulu
+            bulle3 = canvas_pour_image.create_image(150,450,image= image_de_la_petite_bulle,anchor='nw')
+            canvas_pour_image.pack(fill='both',expand=True)
 
-        #déplacement de la bulle 1
-        i =0
-        while i<45:
-            canvas_pour_image.move(bulle,0,-20)
-            time.sleep(0.1)
-            canvas_pour_image.update()
-            i=i+1
-        canvas_pour_image.after(4000)
-        i=0
-        #déplacement de la bulle 2
-        while i<45:
-            canvas_pour_image.move(bulle2,0,-20)
-            time.sleep(0.1)
-            canvas_pour_image.update()
-            i=i+1
-        canvas_pour_image.after(4000)
-        i=0
-        #déplacement de la bulle 3
-        while i<45:
-            canvas_pour_image.move(bulle3,0,-20)
-            time.sleep(0.1)
-            canvas_pour_image.update()
-            i=i+1
-        canvas_pour_image.after(4000)
+            #déplacement de la bulle 1
+            i =0
+            while i<45:
+                canvas_pour_image.move(bulle,0,-20)
+                time.sleep(0.1)
+                canvas_pour_image.update()
+                i=i+1
+            canvas_pour_image.after(4000)
+            i=0
+            #déplacement de la bulle 2
+            while i<45:
+                canvas_pour_image.move(bulle2,0,-20)
+                time.sleep(0.1)
+                canvas_pour_image.update()
+                i=i+1
+            canvas_pour_image.after(4000)
+            i=0
+            #déplacement de la bulle 3
+            while i<45:
+                canvas_pour_image.move(bulle3,0,-20)
+                time.sleep(0.1)
+                canvas_pour_image.update()
+                i=i+1
+            canvas_pour_image.after(4000)
+        break
 
 
 image_bouton = PhotoImage(file="bouton_fond2.gif")
@@ -95,12 +97,8 @@ image_bouton = PhotoImage(file="bouton_fond2.gif")
 def CreateNewWindow():
     #destruction de l'image du fond et de l'image+texte
     canvas_pour_image.pack_forget()
-
-
-
-
-
-
+    
+    
 
     #création d'une nouvelle fenêtre avec une nouvelle taille
     window.title("Statistiques du Titanic")
@@ -168,6 +166,17 @@ def CreateNewWindow():
     button_rechercher.grid(row=17,column=0,sticky=W)
 
 
+"""
+image = PhotoImage(file = "souligner_chic.png")
+canvas = Canvas(window,width=600,height=300, bg='#048B9A', bd = 0)
+canvas.create_image(200/2,200/2,image = image)
+canvas.grid(row=1,column=0,sticky=N)
+"""
+
+"""
+label_window.grid(row=0,column=0)
+canvas.grid(row=0,column=0)
+"""
 
 #boutton "commencer l'aventure" ansi que son placement dans la fenêtre
 button1 = Button(window,image= image_bouton,borderwidth=0,highlightthickness=0,command=CreateNewWindow)
