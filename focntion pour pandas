@@ -49,15 +49,10 @@ g = sns.barplot(x="Sex", y="Survived", hue="Age", hue_order=['Infant','Child','A
     palette=sns.color_palette(flatui),data=titanic,ci=None)
 
 sns.despine()
-
 g.figure.set_size_inches(12,7)
-
 g.axes.set_title('Survival of the Ages',fontsize=34,color="b",alpha=0.3)
-
 g.set_xlabel("Gender",size = 30,color="g",alpha=0.5)
-
 g.set_ylabel("Survival",size = 30,color="r",alpha=0.5)
-
 g.tick_params(labelsize=14,labelcolor="black")
 
 
@@ -66,26 +61,18 @@ g.tick_params(labelsize=14,labelcolor="black")
 #faire un autre graphique à barres afin de montrer les probabilités pour les hommes et les femmes de chaque classe.
 
 sns.set(style="ticks")
-
 flatui = ["#eca1a6", "#bdcebe", "#ada397", "#e74c3c", "#34495e", "#2ecc71"]
-
 h = sns.barplot(x="Sex", y="Survived", hue="Class", hue_order=['First Class','Second Class','Third Class'],
     palette=sns.color_palette(flatui),data=titanic,ci=None)
-
 sns.despine()
-
 h.figure.set_size_inches(12,7)
-
 h.axes.set_title('Survival of the Classes',fontsize=34,color="b",alpha=0.3)
-
 h.set_xlabel("Class",size = 30,color="g",alpha=0.5)
-
 h.set_ylabel("Survival",size = 30,color="r",alpha=0.5)
-
 h.tick_params(labelsize=14,labelcolor="black")
 
 
 #Distribution des hommes survivants et non survivants et nombre moyen de frères et sœurs/épouses
-males_siblings_plot = sns.barplot(x='SibSp',y='Class',hue='Survival',data=males_on_titanic)
 
+males_siblings_plot = sns.barplot(x='SibSp',y='Class',hue='Survival',data=males_on_titanic)
 males_siblings_plot.set_xlabel('Average Siblings/Spouses');
