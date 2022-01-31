@@ -83,3 +83,9 @@ h.set_xlabel("Class",size = 30,color="g",alpha=0.5)
 h.set_ylabel("Survival",size = 30,color="r",alpha=0.5)
 
 h.tick_params(labelsize=14,labelcolor="black")
+
+
+#Distribution des hommes survivants et non survivants et nombre moyen de frères et sœurs/épouses
+males_siblings_plot = sns.barplot(x='SibSp',y='Class',hue='Survival',data=males_on_titanic)
+
+males_siblings_plot.set_xlabel('Average Siblings/Spouses');
