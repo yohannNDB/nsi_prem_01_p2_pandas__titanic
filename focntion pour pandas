@@ -37,3 +37,25 @@ ap = age_survival.plot(kind='barh',title='Chance of Survival per Age Group')
 
 ap.set_ylabel('Age Group');
 ap.set_xlabel('Probability of Survival');
+
+
+
+#barplot montrant la survie des hommes et des femmes pour chaque groupe d'âge
+sns.set(style="ticks")
+
+flatui = ["#9b59b6", "#3498db", "#95a5a6", "#e74c3c", "#34495e", "#2ecc71"]
+
+g = sns.barplot(x="Sex", y="Survived", hue="Age", hue_order=['Infant','Child','Adult','Older Adult'],
+    palette=sns.color_palette(flatui),data=titanic,ci=None)
+
+sns.despine()
+
+g.figure.set_size_inches(12,7)
+
+g.axes.set_title('Survival of the Ages',fontsize=34,color="b",alpha=0.3)
+
+g.set_xlabel("Gender",size = 30,color="g",alpha=0.5)
+
+g.set_ylabel("Survival",size = 30,color="r",alpha=0.5)
+
+g.tick_params(labelsize=14,labelcolor="black")
