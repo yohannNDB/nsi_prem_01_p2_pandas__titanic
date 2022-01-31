@@ -1,0 +1,5 @@
+male_female_percentages = male_female_survival/total_male_female
+print male_female_percentages
+prob_gender = male_female_percentages.plot(kind='barh',title='Chance of Survival per Gender')
+prob_gender.set_xlabel('Probability');
+prob_gender.set_ylabel('Sex');
