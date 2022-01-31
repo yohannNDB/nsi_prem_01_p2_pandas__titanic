@@ -16,4 +16,9 @@ Affichage graphique + création des fonctions:Amir, maxence(En cours)
 
 
 
-Le naufrage du Titanic est l'un des naufrages les plus tristement célèbres de l'histoire. Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement considéré comme "insubmersible", a coulé après avoir heurté un iceberg. Malheureusement, il n'y avait pas assez de canots de sauvetage pour tout le monde à bord, ce qui a entraîné la mort de 1502 des 2224 passagers et membres d'équipage. Bien qu'il y ait eu une part de chance dans la survie, il semble que certains groupes de personnes aient eu plus de chances de survivre que d'autres. Dans ce défi, nous vous demandons de construire un modèle prédictif qui répond à la question suivante : "à l'aide des données relatives aux passagers (nom, âge, sexe, classe socio-économique, etc.).
+Le naufrage du Titanic est l'un des naufrages les plus tristement célèbres de l'histoire. 
+
+Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement considéré comme "insubmersible", a coulé après avoir heurté un iceberg. Malheureusement, il n'y avait pas assez de canots de sauvetage pour tout le monde à bord, ce qui a entraîné la mort de 1502 des 2224 passagers et membres d'équipage. Bien qu'il y ait eu une part de chance dans la survie, il semble que certains groupes de personnes aient eu plus de chances de survivre que d'autres. 
+
+
+
