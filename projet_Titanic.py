@@ -1,4 +1,4 @@
-﻿from tkinter import *
+from tkinter import *
 from random import randint,choice
 import string
 import tkinter as tk
@@ -25,6 +25,8 @@ oui_3ere_classe = IntVar()
 oui_moins_de_18= IntVar()
 oui_de_18_a_50  = IntVar()
 oui_plus_de_50ans = IntVar()
+oui_Non_survivant = IntVar()
+oui_Oui_survivant = IntVar()
 
 
 #création de la fenêtre
@@ -118,6 +120,7 @@ def CreateNewWindow():
     window.geometry("1300x600")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
+    
     window.resizable(width=True,height=True)
 
     # caractéritiques du pseudo titre des statistiques
@@ -125,10 +128,10 @@ def CreateNewWindow():
 
 # caracteristiques des titre des themes des options
 
-    label_frame_theme1 = Label(window,text="   - Le sexe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
-    label_frame_theme2 = Label(window,text="   - La classe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
-    label_frame_theme3 = Label(window,text="   - L'age des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
-
+    label_frame_theme1 = Label(window,text="- Le sexe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
+    label_frame_theme2 = Label(window,text="- La classe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
+    label_frame_theme3 = Label(window,text="- L'age des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
+    label_frame_theme4 = Label(window,text="- Survivant",font=("Courrier",25),bg='#048B9A',fg='white')
 #caractéristiques des options du theme 1
     case_theme1_option1 = Checkbutton(window,text ='Homme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme)
     case_theme1_option2 = Checkbutton(window,text ='Femme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_femme)
@@ -144,44 +147,63 @@ def CreateNewWindow():
     case_theme3_option2 = Checkbutton(window,text =' 18 à 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_de_18_a_50)
     case_theme3_option3 = Checkbutton(window,text =' plus de 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_plus_de_50ans)
 
+#caractéristiques des options du theme 4
+    case_theme4_option1 = Radiobutton(window,text ='-Oui',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=1)
+    case_theme4_option2 = Radiobutton(window,text ='-Non',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=2)
 #caractéristiques du bouton "rechercher"
 
     button_rechercher = Button(window,text='rechercher',bg='#048B9A',fg='white',font=("Courrier",20),activeforeground='white',activebackground='#048B9A',command=afficher)
 
-    canvas_graphique = Canvas(window, width=400, height=400, bg='white', bd=0, highlightthickness=0)
-    canvas_graphique.pack(fill='both',expand=True)
-    
+    # canvas_graphique = Canvas(window, width=400, height=400, bg='white', bd=0, highlightthickness=0)
+    # canvas_graphique.place(fill='both',expand=True)
 
 
-    label_frame_options.pack(padx=4,pady=0,side=LEFT)
+
+    label_frame_options.place(x=0,y=0)
 
 #placements des titres du theme 1 des options
-    label_frame_theme1.pack(padx=5,pady=0,side=LEFT)
+    label_frame_theme1.place(x=0,y=50)
 
 #placements des options du theme 1
-    case_theme1_option1.pack(padx=6,pady=0,side=LEFT)
-    case_theme1_option2.pack(padx=7,pady=0,side=LEFT)
+    case_theme1_option1.place(x=0,y=100)
+    case_theme1_option2.place(x=0,y=130)
 
 #placements des titres du theme 2 des options
-    label_frame_theme2.pack(padx=8,pady=0,side=LEFT)
+    label_frame_theme2.place(x=0,y=180)
 
 #placements des options du theme 2
-    case_theme2_option1.pack(padx=9,pady=0,side=LEFT)
-    case_theme2_option2.pack(padx=10,pady=0,side=LEFT)
-    case_theme2_option3.pack(padx=11,pady=0,side=LEFT)
+    case_theme2_option1.place(x=0,y=230)
+    case_theme2_option2.place(x=0,y=260)
+    case_theme2_option3.place(x=0,y=290)
 
 #placements des titres du theme 3 des options
-    label_frame_theme3.pack(padx=12,pady=0,side=LEFT)
+    label_frame_theme3.place(x=0,y=340)
 
 #placements des options du theme 3
-    case_theme3_option1.pack(padx=13,pady=0,side=LEFT)
-    case_theme3_option2.pack(padx=14,pady=0,side=LEFT)
-    case_theme3_option3.pack(padx=15,pady=0,side=LEFT)
+    case_theme3_option1.place(x=0,y=390)
+    case_theme3_option2.place(x=0,y=420)
+    case_theme3_option3.place(x=0,y=450)
+    
+    label_frame_theme4.place(x=0,y=500)
+    
+#placements des options du theme 4
+    case_theme4_option1.place(x=0,y=550)
+    case_theme4_option2.place(x=0,y=580)
+
 
 #placement du bouton "rechercher"
-    button_rechercher.pack(padx=17,pady=0,side=LEFT)
-    
-    
+    button_rechercher.place(x=0,y=630)
+
+def theme4_boutonsOui(oui_Oui_survivant,oui_Non_survivant):
+    if oui_Oui_survivant.get()==1:
+        if oui_Non_survivant.get()==1:
+            oui_Non_survivant(0)
+            
+def theme4_boutonsNon(oui_Non_survivant,oui_Oui_survivant):
+   if oui_Non_survivant.get()==1:
+        if oui_Oui_survivant.get()==1:
+            oui_Oui_survivant(0)
+
 
 
 """
