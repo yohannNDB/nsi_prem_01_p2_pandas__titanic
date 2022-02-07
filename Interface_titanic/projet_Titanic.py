@@ -18,6 +18,9 @@ oui_3ere_classe = IntVar()
 oui_moins_de_18= IntVar()
 oui_de_18_a_50  = IntVar()
 oui_plus_de_50ans = IntVar()
+##radio_value= IntVar()
+##oui_Non_survivant = IntVar()
+oui_Oui_survivant = IntVar()
 
 
 #création de la fenêtre
@@ -47,7 +50,7 @@ def bulle():
             #image des bulles
             image_de_la_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=300)
             image_de_la_petite_bulle= PhotoImage(file = "bulle_fond.gif",width=110,height=100)
-        
+
 
 
             #creation de trois canvas différents pour acceuillir les bulle 1,2,3
@@ -97,39 +100,49 @@ image_bouton = PhotoImage(file="bouton_fond2.gif")
 def CreateNewWindow():
     #destruction de l'image du fond et de l'image+texte
     canvas_pour_image.pack_forget()
-    
-    
+
+
+
 
     #création d'une nouvelle fenêtre avec une nouvelle taille
     window.title("Statistiques du Titanic")
-    window.geometry("1300x600")
+    window.geometry("1500x700")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
     window.resizable(width=True,height=True)
 
     # caractéritiques du pseudo titre des statistiques
-    label_frame_options = Label(window,text="Les critères",font=("Courrier",30),bg='#048B9A',fg='white')
+    label_frame_options = Label(window,text="Choisissez vos critères pour créer votre propre statistique personnalisée:",font=("Courrier",30),bg='#048B9A',fg='white')
 
 # caracteristiques des titre des themes des options
 
     label_frame_theme1 = Label(window,text="   - Le sexe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
     label_frame_theme2 = Label(window,text="   - La classe des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
     label_frame_theme3 = Label(window,text="   - L'age des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
+    label_frame_theme4 = Label(window,text="   - Survivant",font=("Courrier",25),bg='#048B9A',fg='white')
 
 #caractéristiques des options du theme 1
-    case_theme1_option1 = Checkbutton(window,text ='Homme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme)
-    case_theme1_option2 = Checkbutton(window,text ='Femme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_femme)
+    case_theme1_option1 = Checkbutton(window,text ='-Homme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme)
+    case_theme1_option2 = Checkbutton(window,text ='-Femme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_femme)
 
 #caractéristiques des options du theme 2
 
-    case_theme2_option1 = Checkbutton(window,text ='1ère Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_1ere_classe)
-    case_theme2_option2 = Checkbutton(window,text ='2ème Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_2ere_classe)
-    case_theme2_option3 = Checkbutton(window,text ='3ème Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_3ere_classe)
+    case_theme2_option1 = Checkbutton(window,text ='-1ère Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_1ere_classe)
+    case_theme2_option2 = Checkbutton(window,text ='-2ème Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_2ere_classe)
+    case_theme2_option3 = Checkbutton(window,text ='-3ème Classe',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_3ere_classe)
 
 #caractéristiques des options du theme 3
-    case_theme3_option1 = Checkbutton(window,text ='- de 18 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_moins_de_18)
-    case_theme3_option2 = Checkbutton(window,text =' 18 à 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_de_18_a_50)
-    case_theme3_option3 = Checkbutton(window,text =' plus de 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_plus_de_50ans)
+    case_theme3_option1 = Checkbutton(window,text ='-Enfants',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_moins_de_18)
+    case_theme3_option2 = Checkbutton(window,text ='-18 à 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_de_18_a_50)
+    case_theme3_option3 = Checkbutton(window,text ='-plus de 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_plus_de_50ans)
+
+#caractéristiques des options du theme 4
+    case_theme4_option1 = Radiobutton(window,text ='-Oui',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=1)
+    case_theme4_option2 = Radiobutton(window,text ='-Non',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=2)
+
+
+
+
 
 #caractéristiques du bouton "rechercher"
 
@@ -162,8 +175,35 @@ def CreateNewWindow():
     case_theme3_option2.grid(row=14,column=0,sticky=W)
     case_theme3_option3.grid(row=15,column=0,sticky=W)
 
+#placements des titres du theme 4 des options
+    label_frame_theme4.grid(row=16,column=0,sticky=W)
+#placements des options du theme 4
+    case_theme4_option1.grid(row=17,column=0,sticky=W)
+    case_theme4_option2.grid(row=18,column=0,sticky=W)
 #placement du bouton "rechercher"
-    button_rechercher.grid(row=17,column=0,sticky=W)
+    button_rechercher.grid(row=19,column=0,sticky=W)
+
+
+
+##def check_if_case1_coché(oui_Oui_survivant,case_theme4_option2):
+##    while case_theme4_option1==1:
+##        if oui_Non_survivant==1 :
+##            disabledforeground(case_theme4_option2)
+##        else:
+##            check_if_case2_coché(oui_Oui_survivant1,oui_Non_survivant)
+##
+##def check_if_case2_coché(oui_Oui_survivant,oui_Non_survivant):
+##    while oui_Non_survivant==1 :
+##        if oui_Oui_survivant==1 :
+##            oui_Non_survivant=0
+##        else:
+##            break
+##
+##
+##
+##
+##    check_if_case1_coché(oui_Oui_survivant,oui_Non_survivant)
+
 
 
 """
