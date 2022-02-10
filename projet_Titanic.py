@@ -18,14 +18,12 @@ window = Tk()
 
 #variables des cases cochées
 oui_homme = IntVar()
-oui_femme = IntVar()
 oui_1ere_classe = IntVar()
 oui_2ere_classe = IntVar()
 oui_3ere_classe = IntVar()
 oui_moins_de_18= IntVar()
 oui_de_18_a_50  = IntVar()
 oui_plus_de_50ans = IntVar()
-oui_Non_survivant = IntVar()
 oui_Oui_survivant = IntVar()
 
 
@@ -104,9 +102,16 @@ data = pd.read_excel('titanic3.xls')
 data = data.drop(['name', 'sibsp', 'parch', 'ticket', 'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],axis=1)
 data.shape
 
-def afficher():
-    pass
 
+def afficher():
+    total_lignes=len(data.axes[0])
+    total_colones=len(data.axes[1])
+    print (total_lignes)
+    camembert()
+#création canvas pour placer le graphique
+    canvas_graphique = Canvas(window, width=600, height=600, bg='white', bd=0, highlightthickness=0)
+    canvas_graphique.create_image(600,600,anchor ="nw",image = camembert())
+    canvas_graphique.place(x=600,y=50)
 
 #fonction qui destruit l'accueil et remplace par les statistiques
 def CreateNewWindow():
@@ -117,13 +122,13 @@ def CreateNewWindow():
 
     #création d'une nouvelle fenêtre avec une nouvelle taille
     window.title("Statistiques du Titanic")
-    window.geometry("1300x600")
+    window.geometry("1300x700")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
     
     window.resizable(width=True,height=True)
 
-    # caractéritiques du pseudo titre des statistiques
+# caractéritiques du pseudo titre des statistiques
     label_frame_options = Label(window,text="Les critères",font=("Courrier",30),bg='#048B9A',fg='white')
 
 # caracteristiques des titre des themes des options
@@ -133,8 +138,8 @@ def CreateNewWindow():
     label_frame_theme3 = Label(window,text="- L'age des passagers",font=("Courrier",25),bg='#048B9A',fg='white')
     label_frame_theme4 = Label(window,text="- Survivant",font=("Courrier",25),bg='#048B9A',fg='white')
 #caractéristiques des options du theme 1
-    case_theme1_option1 = Checkbutton(window,text ='Homme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme)
-    case_theme1_option2 = Checkbutton(window,text ='Femme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_femme)
+    case_theme1_option1 = Radiobutton(window,text ='Homme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme,value=1)
+    case_theme1_option2 = Radiobutton(window,text ='Femme',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_homme,value=2)
 
 #caractéristiques des options du theme 2
 
@@ -148,17 +153,16 @@ def CreateNewWindow():
     case_theme3_option3 = Checkbutton(window,text =' plus de 50 ans',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_plus_de_50ans)
 
 #caractéristiques des options du theme 4
-    case_theme4_option1 = Radiobutton(window,text ='-Oui',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=1)
-    case_theme4_option2 = Radiobutton(window,text ='-Non',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=2)
+    case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=1)
+    case_theme4_option2 = Radiobutton(window,text ='Non',bg='#048B9A',fg='black',font=("Courrier",15),activeforeground='white',activebackground='#048B9A',variable=oui_Oui_survivant,value=2)
 #caractéristiques du bouton "rechercher"
 
     button_rechercher = Button(window,text='rechercher',bg='#048B9A',fg='white',font=("Courrier",20),activeforeground='white',activebackground='#048B9A',command=afficher)
 
-    # canvas_graphique = Canvas(window, width=400, height=400, bg='white', bd=0, highlightthickness=0)
-    # canvas_graphique.place(fill='both',expand=True)
 
+    
 
-
+#placements des titres des options
     label_frame_options.place(x=0,y=0)
 
 #placements des titres du theme 1 des options
@@ -183,27 +187,28 @@ def CreateNewWindow():
     case_theme3_option1.place(x=0,y=390)
     case_theme3_option2.place(x=0,y=420)
     case_theme3_option3.place(x=0,y=450)
-    
+
+#placements des titres du theme 4 des options    
     label_frame_theme4.place(x=0,y=500)
     
 #placements des options du theme 4
     case_theme4_option1.place(x=0,y=550)
     case_theme4_option2.place(x=0,y=580)
 
-
 #placement du bouton "rechercher"
     button_rechercher.place(x=0,y=630)
 
-def theme4_boutonsOui(oui_Oui_survivant,oui_Non_survivant):
-    if oui_Oui_survivant.get()==1:
-        if oui_Non_survivant.get()==1:
-            oui_Non_survivant(0)
-            
-def theme4_boutonsNon(oui_Non_survivant,oui_Oui_survivant):
-   if oui_Non_survivant.get()==1:
-        if oui_Oui_survivant.get()==1:
-            oui_Oui_survivant(0)
 
+def camembert():
+    labels = 'Homme','Femme'
+    sizes = [1, 2],
+    colors = ['red', '#40E0D0']
+    plt.pie(sizes, labels=labels, colors=colors, 
+        autopct='%1.1f%%', shadow=True, startangle=90)
+    explode = [0, 0],
+    autopct = lambda x: str(round(x, 2)) + '%',
+    pctdistance = 0.7, labeldistance = 1.4,
+    shadow = True)
 
 
 """
