@@ -162,7 +162,7 @@ def CreateNewWindow():
 
     
 
-#placements des titres des options
+#placements des titres du theme 1 des options
     label_frame_options.place(x=0,y=0)
 
 #placements des titres du theme 1 des options
@@ -200,11 +200,10 @@ def CreateNewWindow():
 
 
 def camembert():
-    labels = 'Homme','Femme'
-    sizes = [1, 2],
-    colors = ['red', '#40E0D0']
-    plt.pie(sizes, labels=labels, colors=colors, 
-        autopct='%1.1f%%', shadow=True, startangle=90)
+    plt.figure(figsize = (8, 8))
+    x = [1, 2]
+    plt.pie(x, labels = ['A', 'B'],
+    colors = ['red', '#40E0D0'],
     explode = [0, 0],
     autopct = lambda x: str(round(x, 2)) + '%',
     pctdistance = 0.7, labeldistance = 1.4,
