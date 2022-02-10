@@ -8,6 +8,9 @@ import random
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
+NavigationToolbar2Tk)
 import sys
 from PyQt5 import QtCore, QtWidgets
 
@@ -107,11 +110,21 @@ def afficher():
     total_lignes=len(data.axes[0])
     total_colones=len(data.axes[1])
     print (total_lignes)
-    camembert()
+    fig = Figure(figsize = (8, 8))
+    x = [1, 2]
+    plt.pie(x, labels = ['A', 'B'],
+    colors = ['red', '#40E0D0'],
+    explode = [0, 0],
+    autopct = lambda x: str(round(x, 2)) + '%',
+    pctdistance = 0.7, labeldistance = 1.4,
+    shadow = True)
+    plt.savefig('graphique.png')
+
 #création canvas pour placer le graphique
     canvas_graphique = Canvas(window, width=600, height=600, bg='white', bd=0, highlightthickness=0)
-    canvas_graphique.create_image(600,600,anchor ="nw",image = camembert())
+    canvas_graphique.
     canvas_graphique.place(x=600,y=50)
+
 
 #fonction qui destruit l'accueil et remplace par les statistiques
 def CreateNewWindow():
@@ -125,7 +138,7 @@ def CreateNewWindow():
     window.geometry("1300x700")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
-    
+
     window.resizable(width=True,height=True)
 
 # caractéritiques du pseudo titre des statistiques
@@ -160,7 +173,7 @@ def CreateNewWindow():
     button_rechercher = Button(window,text='rechercher',bg='#048B9A',fg='white',font=("Courrier",20),activeforeground='white',activebackground='#048B9A',command=afficher)
 
 
-    
+
 
 #placements des titres du theme 1 des options
     label_frame_options.place(x=0,y=0)
@@ -188,9 +201,9 @@ def CreateNewWindow():
     case_theme3_option2.place(x=0,y=420)
     case_theme3_option3.place(x=0,y=450)
 
-#placements des titres du theme 4 des options    
+#placements des titres du theme 4 des options
     label_frame_theme4.place(x=0,y=500)
-    
+
 #placements des options du theme 4
     case_theme4_option1.place(x=0,y=550)
     case_theme4_option2.place(x=0,y=580)
@@ -198,16 +211,6 @@ def CreateNewWindow():
 #placement du bouton "rechercher"
     button_rechercher.place(x=0,y=630)
 
-
-def camembert():
-    plt.figure(figsize = (8, 8))
-    x = [1, 2]
-    plt.pie(x, labels = ['A', 'B'],
-    colors = ['red', '#40E0D0'],
-    explode = [0, 0],
-    autopct = lambda x: str(round(x, 2)) + '%',
-    pctdistance = 0.7, labeldistance = 1.4,
-    shadow = True)
 
 
 """
