@@ -109,7 +109,9 @@ data.shape
 def afficher():
     total_lignes=len(data.axes[0])
     total_colones=len(data.axes[1])
+    #total_variables = oui_homme + oui_1ere_classe + oui_2ere_classe + oui_3ere_classe + oui_moins_de_18 + oui_de_18_a_50 + oui_plus_de_50ans + oui_Oui_survivant
     print (total_lignes)
+    print (oui_1ere_classe)
     fig = Figure(figsize = (8, 8))
     x = [1, 2]
     plt.pie(x, labels = ['A', 'B'],
@@ -118,12 +120,12 @@ def afficher():
     autopct = lambda x: str(round(x, 2)) + '%',
     pctdistance = 0.7, labeldistance = 1.4,
     shadow = True)
-    plt.savefig('graphique.png')
+    plt.show()
 
 #création canvas pour placer le graphique
-    canvas_graphique = Canvas(window, width=600, height=600, bg='white', bd=0, highlightthickness=0)
-    canvas_graphique.
-    canvas_graphique.place(x=600,y=50)
+    # canvas_graphique = Canvas(window, width=600, height=600, bg='white', bd=0, highlightthickness=0)
+    # canvas_graphique.create_image(600,600,image= graphique.png)
+    # canvas_graphique.place(x=600,y=50)
 
 
 #fonction qui destruit l'accueil et remplace par les statistiques
