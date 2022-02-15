@@ -105,27 +105,55 @@ data = pd.read_excel('titanic3.xls')
 data = data.drop(['name', 'sibsp', 'parch', 'ticket', 'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],axis=1)
 data.shape
 
+# fonction qui additione toutes les variables
+def total_variables():
+    total = 0
+    if oui_homme.get() == 1:
+        total = total + 1
+    if oui_homme.get() == 2:
+        total = total + 1
+    if oui_1ere_classe.get() == 1:
+        total = total+ 1
+    if oui_2ere_classe.get() == 1:
+        total = total + 1
+    if oui_3ere_classe.get() == 1:
+        total = total + 1
+    if oui_moins_de_18.get() == 1:
+        total = total + 1
+    if oui_de_18_a_50.get() == 1:
+        total = total + 1
+    if oui_plus_de_50ans.get() == 1:
+        total = total + 1
+    if oui_Oui_survivant.get() == 1:
+        total = total + 1
+    if oui_Oui_survivant.get() == 2:
+        total = total + 1
+    return total
 
-def afficher():
+def filtres():
     total_lignes=len(data.axes[0])
     total_colones=len(data.axes[1])
-    #total_variables = oui_homme + oui_1ere_classe + oui_2ere_classe + oui_3ere_classe + oui_moins_de_18 + oui_de_18_a_50 + oui_plus_de_50ans + oui_Oui_survivant
-    print (total_lignes)
-    print (oui_1ere_classe)
+    if oui_homme.get() == 1:
+        if total_variables() == 1:
+            total_lignes = total_lignes - len(data[data['sex'] == 'female'])
+            
+    return total_lignes
+            
+    
+def afficher():
+    print (filtres())
+    print (total_variables())
     fig = Figure(figsize = (8, 8))
-    x = [1, 2]
-    plt.pie(x, labels = ['A', 'B'],
+    x = [filtres(), len(data.axes[0])]
+    plt.pie(x, labels = ['homme', 'femme'],
     colors = ['red', '#40E0D0'],
     explode = [0, 0],
     autopct = lambda x: str(round(x, 2)) + '%',
     pctdistance = 0.7, labeldistance = 1.4,
     shadow = True)
+    #print(oui_1ere_classe.get())
     plt.show()
 
-#création canvas pour placer le graphique
-    # canvas_graphique = Canvas(window, width=600, height=600, bg='white', bd=0, highlightthickness=0)
-    # canvas_graphique.create_image(600,600,image= graphique.png)
-    # canvas_graphique.place(x=600,y=50)
 
 
 #fonction qui destruit l'accueil et remplace par les statistiques
