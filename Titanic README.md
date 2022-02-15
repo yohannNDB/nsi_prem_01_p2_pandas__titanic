@@ -35,7 +35,22 @@ __Interface graphique:__ (louis, yohann)
 __Affichage et création des graphique:__ (maxence,amir)
          
 * utilisation de pandas pour créer des graphiques
-* utilisation de camembert 
+* utilisation de camembert:
+```
+def afficher(): 
+    print (filtres()) 
+    print (total_variables()) 
+    fig = Figure(figsize = (8, 8)) 
+    x = [filtres(), len(data.axes[0])] 
+    plt.pie(x, labels = ['homme', 'femme'], 
+    colors = ['red', '#40E0D0'],  
+    explode = [0, 0], 
+    autopct = lambda x: str(round(x, 2)) + '%',  
+    pctdistance = 0.7, labeldistance = 1.4,  
+    shadow = True)  
+    #print(oui_1ere_classe.get()) 
+    plt.show()    
+```
 
 
 
