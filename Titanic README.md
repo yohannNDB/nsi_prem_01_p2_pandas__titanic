@@ -13,7 +13,7 @@ Le Titanic est long de 269 mètres, large de 28 mètres et haut de 53 mètres, d
 Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement considéré comme "insubmersible", a coulé après avoir heurté un iceberg. Malheureusement, il n'y avait pas assez de canots de sauvetage pour tout le monde à bord, ce qui a entraîné la mort de 1502 des 2224 passagers et membres d'équipage. Bien qu'il y ait eu une part de chance dans la survie, il semble que certains groupes de personnes aient eu plus de chances de survivre que d'autres.  
 
 *Pour plus d'information sur le titanic voici quelques liens:*
-* [wikipedia du titanic](https://en.wikipedia.org/wiki/Passengers_of_the_RMS_Titanic)
+* [wikipedia du titanic](https://fr.wikipedia.org/wiki/Passagers_du_Titanic)
 * [autre site en englais](http://mashable.com/2016/04/14/titanic-survivors)
 
 
