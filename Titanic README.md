@@ -14,7 +14,7 @@ Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement consid
 
 *Pour plus d'information sur le titanic voici quelques liens:*
 * [wikipedia du titanic](https://fr.wikipedia.org/wiki/Passagers_du_Titanic)
-* [autre site en englais](http://mashable.com/2016/04/14/titanic-survivors)
+* [autre site en anglais](http://mashable.com/2016/04/14/titanic-survivors)
 
 
 __Modules utilisés__
@@ -31,9 +31,19 @@ __Interface graphique:__ (louis, yohann)
 
 
 * Création d'une fenêtre avec un titre un bouton "démarrer l'experience"
+```
+```
 * un background avec des animations,puis un onglet déroulant offrant 2 possibilités:"nouvelle stat" et "quitter"
 * quand "nouvelle stat" est choisie la fenêtre affiche des choix sur les informations contenues dans le graphique grâce à des boutons.
-
+```
+case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',\
+                    +font=("Courrier",15),activeforeground='white',activebackground='#048B9A',\
+                    +variable=oui_Oui_survivant,value=1)
+case_theme4_option2 = Radiobutton(window,text ='Non',bg='#048B9A',fg='black',\
+                     +font("Courrier",15),activeforeground='white',activebackground='#048B9A',
+                     +variable=oui_Oui_survivant,value=2)
+    
+ ```
 
 __Affichage et création des graphique:__ (maxence,amir)
          
