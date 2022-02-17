@@ -30,7 +30,7 @@ __Modules utilisés__
 __Interface graphique:__ (louis, yohann)
 
 
-* Création d'une fenêtre avec un titre un bouton "démarrer l'experience"
+* Création d'une fenêtre avec un titre un bouton "commencer l'aventure" qui lance la fonction CreateNewWindow
 
 ![bouton commencer l'aventure](https://user-images.githubusercontent.com/91455596/154450920-27c0b2ac-292f-404f-bb2d-578d523042ad.PNG)
  
@@ -38,6 +38,7 @@ __Interface graphique:__ (louis, yohann)
 
 * quand "nouvelle stat" est choisie la fenêtre affiche des choix sur les informations contenues dans le graphique grâce à des boutons.
 ```
+#caractéristiques des options du theme 4
 case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',\
                     +font=("Courrier",15),activeforeground='white',activebackground='#048B9A',\
                     +variable=oui_Oui_survivant,value=1)
