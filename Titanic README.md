@@ -31,9 +31,11 @@ __Interface graphique:__ (louis, yohann)
 
 
 * Création d'une fenêtre avec un titre un bouton "démarrer l'experience"
-```
-```
+
+![bouton commencer l'aventure](https://user-images.githubusercontent.com/91455596/154450920-27c0b2ac-292f-404f-bb2d-578d523042ad.PNG)
+ 
 * un background avec des animations,puis un onglet déroulant offrant 2 possibilités:"nouvelle stat" et "quitter"
+
 * quand "nouvelle stat" est choisie la fenêtre affiche des choix sur les informations contenues dans le graphique grâce à des boutons.
 ```
 case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',\
