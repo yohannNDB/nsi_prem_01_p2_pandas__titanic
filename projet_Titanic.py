@@ -105,32 +105,6 @@ def bulle():
             canvas_pour_image.after(4000)
         break
 
-# fonction qui additione toutes les variables
-def total_variables():
-    total = 0
-    if sex.get() == 1:
-        total = total + 1
-    if sex.get() == 2:
-        total = total + 1
-    if classe.get() == 1:
-        total = total+ 1
-    if classe.get() == 2:
-        total = total + 1
-    if classe.get() == 3:
-        total = total + 1
-    if age.get() == 1:
-        total = total + 1
-    if age.get() == 2:
-        total = total + 1
-    if age.get() == 3:
-        total = total + 1
-    if état.get() == 1:
-        total = total + 1
-    if état.get() == 2:
-        total = total + 1
-    return total
-
-
     
 def filtres():   
     data = pd.read_excel('titanic3.xls')
@@ -164,7 +138,6 @@ def filtres():
 
 def afficher():
     print (filtres())
-    print (total_variables())
     x = filtres()
     plt.pie(x, labels = ['Population visée', 'Reste population'],
     colors = ['red', '#40E0D0'],
