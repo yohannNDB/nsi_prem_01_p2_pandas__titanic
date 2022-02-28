@@ -10,45 +10,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
+
 #fonction pour quitter la page
 def Quitter():
     sys.exit()
-
-#fenêtre
-window = Tk()
-
-# variables des cases cochées
-sex = IntVar(master= window, value= 0)
-classe = IntVar(master= window, value= 0)
-age = IntVar(master= window, value= 0)
-état = IntVar(master= window, value= 0)
-
-#création de la fenêtre
-window.title("Statistiques du Titanic")
-window.geometry("710x444")
-window.config(background = "#048B9A")
-window.iconbitmap("titanic.ico")
-window.resizable(width=False,height=False)
-
-#image de fond
-image_fond = PhotoImage(file = "fond_papier.gif")
-image_fond2 = PhotoImage(file = "fond2.gif")
-
-#image du bouton
-image_bouton = PhotoImage(file="bouton_fond2.gif")
-
-#création de l'image de fond et du Titre
-canvas_pour_image = Canvas(window,width=1300,height=813, bg='white',bd=0,highlightthickness=0)
-canvas_pour_image.create_image(0,0,image = image_fond,anchor='nw')
-canvas_pour_image.create_text(20,150,text="Bienvenue dans l'applicationde statistiques du Titanic",\
-                             font=("Script",35),anchor='nw')
-canvas_pour_image.place(x=0,y=0)
-
-menu_bar = Menu(window)
-menu_fill = Menu(menu_bar, tearoff=0)
-menu_fill.add_command(label="Quitter", command=Quitter)
-menu_bar.add_cascade(label="Fonction", menu=menu_fill)
-window.config(menu=menu_bar)
 
 #(fonction en cours)weight_au_harsard_pour_bulles = random.randint(0,200)
 ok_pour_bulle=True
@@ -106,7 +71,8 @@ def bulle():
             canvas_pour_image.after(4000)
         break
 
-    
+
+#fonction qui crée un dataframe contenant que les lignes désirées et qui compte les lignes à la fin   
 def filtres():   
     data = pd.read_excel('titanic3.xls')
     data = data.drop(['name', 'sibsp', 'parch', 'ticket',\
@@ -131,18 +97,17 @@ def filtres():
         data = data[data['survived'] == 1]
     if état.get() == 2:
         data = data[data['survived'] == 0]
-   
+    label_phrases()
     total_lignes = len(data.axes[0]) 
     lignes_fin = lignes_début - total_lignes
     return total_lignes,lignes_fin
 
-
+#fonction qui affiche le graphique
 def afficher():
-    print (filtres())
     x = filtres()
     plt.pie(x, labels = ['Population visée', 'Reste population'],
     colors = ['red', '#40E0D0'],
-    explode = [0.2, 0],
+    explode = [0.3, 0],
     autopct = lambda x: str(round(x, 2)) + '%',
     pctdistance = 0.7, labeldistance = 1.4,
     shadow = True)
@@ -164,104 +129,84 @@ def CreateNewWindow():
 
 #création d'une nouvelle fenêtre avec une nouvelle taille
     window.title("Statistiques du Titanic")
-    window.geometry("1300x813")
+    window.geometry("900x563")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
     window.resizable(width=False,height=False)
     
     canvas_pour_image.create_image(0,0,image = image_fond2,anchor='nw')
+    canvas_pour_image.create_text(300,25,text="Les Criteres",\
+                                 font=("Roman",50, "bold"),anchor='nw')
+    canvas_pour_image.create_text(30,125,text="Le sexe des passagers :",\
+                                 font=("Roman",25, "bold"),anchor='nw')
+    canvas_pour_image.create_text(560,125,text="La classe des passagers :",\
+                                 font=("Roman",25, "bold"),anchor='nw')
+    canvas_pour_image.create_text(30,300,text="Age des passagers :",\
+                                 font=("Roman",25, "bold"),anchor='nw')
+    canvas_pour_image.create_text(560,300,text="Survivant :",\
+                                 font=("Roman",25, "bold"),anchor='nw')
 
 
-# caractéritiques du pseudo titre des statistiques
-    label_frame_options = Label(window,text="Les critères",\
-                        font=("Courrier",30),bg='#048B9A',fg='white')
-
-# caracteristiques des titre des themes des options
-    label_frame_theme1 = Label(window,text="- Le sexe des passagers",\
-                        font=("Courrier",25),bg='#048B9A',fg='white')
-    label_frame_theme2 = Label(window,text="- La classe des passagers",\
-                        font=("Courrier",25),bg='#048B9A',fg='white')
-    label_frame_theme3 = Label(window,text="- L'age des passagers",\
-                        font=("Courrier",25),bg='#048B9A',fg='white')
-    label_frame_theme4 = Label(window,text="- Survivant",\
-                        font=("Courrier",25),bg='#048B9A',fg='white')
 
 #caractéristiques des options du theme 1
-    case_theme1_option1 = Radiobutton(window,text ='Homme',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme1_option1 = Radiobutton(window,text ='Homme',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=sex,value=1)
-    case_theme1_option2 = Radiobutton(window,text ='Femme',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme1_option2 = Radiobutton(window,text ='Femme',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=sex,value=2)
 
 #caractéristiques des options du theme 2
-    case_theme2_option1 = Radiobutton(window,text ='1ère Classe',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme2_option1 = Radiobutton(window,text ='1ère Classe',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=classe,value=1)
-    case_theme2_option2 = Radiobutton(window,text ='2e Classe',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',
+    case_theme2_option2 = Radiobutton(window,text ='2e Classe',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',
                         activebackground='#048B9A',variable=classe,value=2)
-    case_theme2_option3 = Radiobutton(window,text ='3e Classe',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme2_option3 = Radiobutton(window,text ='3e Classe',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=classe,value=3)
 
 #caractéristiques des options du theme 3
-    case_theme3_option1 = Radiobutton(window,text ='Mineur',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme3_option1 = Radiobutton(window,text ='Mineur',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=age,value=1)
-    case_theme3_option2 = Radiobutton(window,text ='Majeur',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
+    case_theme3_option2 = Radiobutton(window,text ='Majeur',bg='#FADF8F',\
+                        fg='black',font=("Roman",15),activeforeground='white',\
                         activebackground='#048B9A',variable=age,value=2)
 
 #caractéristiques des options du theme 4
-    case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',\
-                        font=("Courrier",15),activeforeground='white',
+    case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#FADF8F',fg='black',\
+                        font=("Roman",15),activeforeground='white',
                         activebackground='#048B9A',variable=état,value=1)
-    case_theme4_option2 = Radiobutton(window,text ='Non',bg='#048B9A',fg='black',\
-                        font=("Courrier",15),activeforeground='white',
+    case_theme4_option2 = Radiobutton(window,text ='Non',bg='#FADF8F',fg='black',\
+                        font=("Roman",15),activeforeground='white',
                         activebackground='#048B9A',variable=état,value=2)
+        
 #caractéristiques du bouton "rechercher"
-    button_rechercher = Button(window,text='rechercher',bg='#048B9A',fg='white',\
-                        font=("Courrier",20),activeforeground='white',\
+    button_rechercher = Button(window,text='rechercher',bg='#FDD663',fg='black',\
+                        font=("Roman",20),activeforeground='white',\
                         activebackground='#048B9A',command=afficher)
 
-
-
-
-#placements des titres du theme 1 des options
-    label_frame_options.place(x=0,y=0)
-
-#placements des titres du theme 1 des options
-    label_frame_theme1.place(x=0,y=50)
-
 #placements des options du theme 1
-    case_theme1_option1.place(x=0,y=100)
-    case_theme1_option2.place(x=0,y=130)
-
-#placements des titres du theme 2 des options
-    label_frame_theme2.place(x=0,y=180)
+    case_theme1_option1.place(x=50,y=180)
+    case_theme1_option2.place(x=50,y=220)
 
 #placements des options du theme 2
-    case_theme2_option1.place(x=0,y=230)
-    case_theme2_option2.place(x=0,y=260)
-    case_theme2_option3.place(x=0,y=290)
-
-#placements des titres du theme 3 des options
-    label_frame_theme3.place(x=0,y=340)
+    case_theme2_option1.place(x=580,y=180)
+    case_theme2_option2.place(x=580,y=220)
+    case_theme2_option3.place(x=580,y=260)
 
 #placements des options du theme 3
-    case_theme3_option1.place(x=0,y=390)
-    case_theme3_option2.place(x=0,y=420)
-
-#placements des titres du theme 4 des options
-    label_frame_theme4.place(x=0,y=470)
+    case_theme3_option1.place(x=50,y=360)
+    case_theme3_option2.place(x=50,y=400)
 
 #placements des options du theme 4
-    case_theme4_option1.place(x=0,y=520)
-    case_theme4_option2.place(x=0,y=550)
+    case_theme4_option1.place(x=580,y=360)
+    case_theme4_option2.place(x=580,y=400)
 
 #placement du bouton "rechercher"
-    button_rechercher.place(x=0,y=600)
+    button_rechercher.place(x=380,y=480)
 
 # création du menu en haut
     menu_bar = Menu(window)
@@ -272,6 +217,42 @@ def CreateNewWindow():
     window.config(menu=menu_bar)
 
 
+
+#fenêtre
+window = Tk()
+
+# variables des cases cochées
+sex = IntVar(master= window, value= 0)
+classe = IntVar(master= window, value= 0)
+age = IntVar(master= window, value= 0)
+état = IntVar(master= window, value= 0)
+
+#création de la fenêtre
+window.title("Statistiques du Titanic")
+window.geometry("710x444")
+window.config(background = "#048B9A")
+window.iconbitmap("titanic.ico")
+window.resizable(width=False,height=False)
+
+#image de fond
+image_fond = PhotoImage(file = "fond_papier.gif")
+image_fond2 = PhotoImage(file = "fond_papier2.gif")
+
+#image du bouton
+image_bouton = PhotoImage(file="bouton_fond2.gif")
+
+#création de l'image de fond et du Titre
+canvas_pour_image = Canvas(window,width=1300,height=813, bg='white',bd=0,highlightthickness=0)
+canvas_pour_image.create_image(0,0,image = image_fond,anchor='nw')
+canvas_pour_image.create_text(20,150,text="Bienvenue dans l'applicationde statistiques du Titanic",\
+                             font=("Script",35),anchor='nw')
+canvas_pour_image.place(x=0,y=0)
+
+menu_bar = Menu(window)
+menu_fill = Menu(menu_bar, tearoff=0)
+menu_fill.add_command(label="Quitter", command=Quitter)
+menu_bar.add_cascade(label="Fonction", menu=menu_fill)
+window.config(menu=menu_bar)
 
 #boutton "commencer l'aventure" ansi que son placement dans la fenêtre
 button1 = Button(window,image= image_bouton,borderwidth=0,\
