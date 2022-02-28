@@ -105,11 +105,6 @@ def bulle():
             canvas_pour_image.after(4000)
         break
 
-data = pd.read_excel('titanic3.xls')
-data = data.drop(['name', 'sibsp', 'parch', 'ticket',\
-                'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],axis=1)
-data.shape
-
 # fonction qui additione toutes les variables
 def total_variables():
     total = 0
@@ -135,30 +130,48 @@ def total_variables():
         total = total + 1
     return total
 
-def filtres():
-    total_lignes=0
-    total_colones=len(data.axes[1])
-    if sex.get() == 1:
-        if total_variables() == 1:
-            total_lignes = total_lignes + len(data[data['sex'] == 'male'])
-        if classe.get() == 1:
-            if total_variables() == 2:
-                total_lignes = total_lignes + len(data[data['pclass'] == 1])
 
-    return total_lignes
+    
+def filtres():   
+    data = pd.read_excel('titanic3.xls')
+    data = data.drop(['name', 'sibsp', 'parch', 'ticket',\
+                    'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],axis=1)
+    data.dropna()
+    lignes_début = len(data.axes[0])
+    if sex.get() == 1:
+        data = data[data['sex'] == 'male']
+    if sex.get() == 2:
+        data = data[data['sex'] == 'female']
+    if classe.get() == 1:
+        data = data[data['pclass'] == 1]
+    if classe.get() == 2:
+        data = data[data['pclass'] == 2]
+    if classe.get() == 3:
+        data = data[data['pclass'] == 3]
+    if age.get() == 1:
+        data = data[data['age'] < 18]
+    if age.get() == 2:
+        data = data[data['age'] > 18]
+    if état.get() == 1:
+        data = data[data['survived'] == 1]
+    if état.get() == 2:
+        data = data[data['survived'] == 0]
+   
+    total_lignes = len(data.axes[0]) 
+    lignes_fin = lignes_début - total_lignes
+    return total_lignes,lignes_fin
 
 
 def afficher():
     print (filtres())
     print (total_variables())
-    x = [filtres(), len(data.axes[0])]
-    plt.pie(x, labels = ['homme', 'femme'],
+    x = filtres()
+    plt.pie(x, labels = ['Population visée', 'Reste population'],
     colors = ['red', '#40E0D0'],
-    explode = [0, 0],
+    explode = [0.2, 0],
     autopct = lambda x: str(round(x, 2)) + '%',
     pctdistance = 0.7, labeldistance = 1.4,
     shadow = True)
-    #print(oui_1ere_classe.get())
     plt.show()
 
 
@@ -208,23 +221,20 @@ def CreateNewWindow():
     case_theme2_option1 = Radiobutton(window,text ='1ère Classe',bg='#048B9A',\
                         fg='black',font=("Courrier",15),activeforeground='white',\
                         activebackground='#048B9A',variable=classe,value=1)
-    case_theme2_option2 = Radiobutton(window,text ='2ème Classe',bg='#048B9A',\
+    case_theme2_option2 = Radiobutton(window,text ='2e Classe',bg='#048B9A',\
                         fg='black',font=("Courrier",15),activeforeground='white',
                         activebackground='#048B9A',variable=classe,value=2)
-    case_theme2_option3 = Radiobutton(window,text ='3ème Classe',bg='#048B9A',\
+    case_theme2_option3 = Radiobutton(window,text ='3e Classe',bg='#048B9A',\
                         fg='black',font=("Courrier",15),activeforeground='white',\
                         activebackground='#048B9A',variable=classe,value=3)
 
 #caractéristiques des options du theme 3
-    case_theme3_option1 = Radiobutton(window,text ='- de 18 ans',bg='#048B9A',\
+    case_theme3_option1 = Radiobutton(window,text ='Mineur',bg='#048B9A',\
                         fg='black',font=("Courrier",15),activeforeground='white',\
                         activebackground='#048B9A',variable=age,value=1)
-    case_theme3_option2 = Radiobutton(window,text =' 18 à 50 ans',bg='#048B9A',\
+    case_theme3_option2 = Radiobutton(window,text ='Majeur',bg='#048B9A',\
                         fg='black',font=("Courrier",15),activeforeground='white',\
                         activebackground='#048B9A',variable=age,value=2)
-    case_theme3_option3 = Radiobutton(window,text =' plus de 50 ans',bg='#048B9A',\
-                        fg='black',font=("Courrier",15),activeforeground='white',\
-                        activebackground='#048B9A',variable=age,value=3)
 
 #caractéristiques des options du theme 4
     case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#048B9A',fg='black',\
@@ -265,17 +275,16 @@ def CreateNewWindow():
 #placements des options du theme 3
     case_theme3_option1.place(x=0,y=390)
     case_theme3_option2.place(x=0,y=420)
-    case_theme3_option3.place(x=0,y=450)
 
 #placements des titres du theme 4 des options
-    label_frame_theme4.place(x=0,y=500)
+    label_frame_theme4.place(x=0,y=470)
 
 #placements des options du theme 4
-    case_theme4_option1.place(x=0,y=550)
-    case_theme4_option2.place(x=0,y=580)
+    case_theme4_option1.place(x=0,y=520)
+    case_theme4_option2.place(x=0,y=550)
 
 #placement du bouton "rechercher"
-    button_rechercher.place(x=0,y=630)
+    button_rechercher.place(x=0,y=600)
 
 # création du menu en haut
     menu_bar = Menu(window)
