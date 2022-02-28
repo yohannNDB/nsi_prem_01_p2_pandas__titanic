@@ -25,23 +25,24 @@ age = IntVar(master= window, value= 0)
 
 #création de la fenêtre
 window.title("Statistiques du Titanic")
-window.geometry("700x450")
+window.geometry("710x444")
 window.config(background = "#048B9A")
 window.iconbitmap("titanic.ico")
 window.resizable(width=False,height=False)
 
 #image de fond
-image = PhotoImage(file = "fond_papier.gif")
+image_fond = PhotoImage(file = "fond_papier.gif")
+image_fond2 = PhotoImage(file = "fond2.gif")
 
 #image du bouton
 image_bouton = PhotoImage(file="bouton_fond2.gif")
 
 #création de l'image de fond et du Titre
-canvas_pour_image = Canvas(window,width=700,height=450, bg='white',bd=0,highlightthickness=0)
-canvas_pour_image.create_image(0,0,image = image,anchor='nw')
+canvas_pour_image = Canvas(window,width=1300,height=813, bg='white',bd=0,highlightthickness=0)
+canvas_pour_image.create_image(0,0,image = image_fond,anchor='nw')
 canvas_pour_image.create_text(20,150,text="Bienvenue dans l'applicationde statistiques du Titanic",\
                              font=("Script",35),anchor='nw')
-canvas_pour_image.pack(fill='both',expand=True)
+canvas_pour_image.place(x=0,y=0)
 
 menu_bar = Menu(window)
 menu_fill = Menu(menu_bar, tearoff=0)
@@ -58,7 +59,7 @@ def bulle():
         for i in range (1):
             #image des bulles
             image_de_la_bulle= PhotoImage(file = "bulle_fond.gif",\
-                             width=110,height=300)
+                              width=110,height=300)
             image_de_la_petite_bulle= PhotoImage\
                     (file = "bulle_fond.gif",width=110,height=100)
 
@@ -157,16 +158,19 @@ def CreateNewWindow():
     classe.set(0)
     age.set(0)
     état.set(0)
-#destruction de l'image du fond et de l'image+texte
-    canvas_pour_image.pack_forget()
+    
+#destruction de l'ancienne image de fond, du texte et du bouton
+    canvas_pour_image.delete(ALL)
 
 #création d'une nouvelle fenêtre avec une nouvelle taille
     window.title("Statistiques du Titanic")
-    window.geometry("1300x700")
+    window.geometry("1300x813")
     window.config(background = "#048B9A")
     window.iconbitmap("titanic.ico")
+    window.resizable(width=False,height=False)
+    
+    canvas_pour_image.create_image(0,0,image = image_fond2,anchor='nw')
 
-    window.resizable(width=True,height=True)
 
 # caractéritiques du pseudo titre des statistiques
     label_frame_options = Label(window,text="Les critères",\
@@ -271,7 +275,7 @@ def CreateNewWindow():
 
 #boutton "commencer l'aventure" ansi que son placement dans la fenêtre
 button1 = Button(window,image= image_bouton,borderwidth=0,\
-                               highlightthickness=0,command=CreateNewWindow)
+                                highlightthickness=0,command=CreateNewWindow)
 my_button1_window = canvas_pour_image.create_window\
                     (255,450/2,anchor = "nw",window=button1)
 
