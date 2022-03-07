@@ -2,9 +2,10 @@
                                                           
                                                         
 Participants: Amir Kemache, Louis Milliers, Yohann Pouillieute, Maxence Guibal
+## Notre projet:
+A partir de la base de statistique du naufrage du titanic nous créons des graphiques comparant plusieurs informations.
                                                        
-                                                       
-## __Information sur le naufrage du titanic__
+## __Information sur le naufrage du titanic:__
 ![photo du titanic](http://c.files.bbci.co.uk/1C60/production/_118046270_gettyimages-877330410.jpg)
 
 Le naufrage du Titanic est l'un des naufrages les plus tristement célèbres de l'histoire. 
@@ -17,7 +18,7 @@ Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement consid
 * [autre site en anglais](http://mashable.com/2016/04/14/titanic-survivors)
 
 
-## __Modules utilisés__
+## __Modules utilisés:__
              
 * tkinter
 * xlrd
