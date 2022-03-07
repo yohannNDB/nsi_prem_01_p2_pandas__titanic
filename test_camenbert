@@ -1,8 +1,0 @@
-plt.figure(figsize = (8, 8))
-x = [1, 2]
-plt.pie(x, labels = ['A', 'B'],
-colors = ['red', '#40E0D0'],
-explode = [0, 0],
-autopct = lambda x: str(round(x, 2)) + '%',
-pctdistance = 0.7, labeldistance = 1.4,
-shadow = True)
