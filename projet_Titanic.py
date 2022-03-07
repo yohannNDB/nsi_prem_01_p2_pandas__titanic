@@ -103,7 +103,7 @@ def filtres():
     return total_lignes,lignes_fin
 
 #fonction qui affiche le graphique
-def afficher():
+def afficher_graphique():
     x = filtres()
     plt.pie(x, labels = ['Population visée', 'Reste population'],
     colors = ['red', '#40E0D0'],
@@ -186,7 +186,7 @@ def CreateNewWindow():
 #caractéristiques du bouton "rechercher"
     button_rechercher = Button(window,text='rechercher',bg='#FDD663',fg='black',\
                         font=("Roman",20),activeforeground='white',\
-                        activebackground='#048B9A',command=afficher)
+                        activebackground='#048B9A',command=afficher_graphique)
 
 #placements des options du theme 1
     case_theme1_option1.place(x=50,y=180)
