@@ -1,10 +1,10 @@
-Projet 2 NSI première
+# Projet 2 NSI première
                                                           
                                                         
 Participants: Amir Kemache, Louis Milliers, Yohann Pouillieute, Maxence Guibal
                                                        
                                                        
-__Information sur le naufrage du titanic__
+## __Information sur le naufrage du titanic__
 ![photo du titanic](http://c.files.bbci.co.uk/1C60/production/_118046270_gettyimages-877330410.jpg)
 
 Le naufrage du Titanic est l'un des naufrages les plus tristement célèbres de l'histoire. 
@@ -17,7 +17,7 @@ Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement consid
 * [autre site en anglais](http://mashable.com/2016/04/14/titanic-survivors)
 
 
-__Modules utilisés__
+## __Modules utilisés__
              
 * tkinter
 * xlrd
@@ -27,7 +27,7 @@ __Modules utilisés__
 
 
 
-__Interface graphique:__ (louis, yohann)
+## __Interface graphique:__ (louis, yohann)
 
 
 * Création d'une fenêtre avec un titre un bouton "commencer l'aventure" qui lance la fonction CreateNewWindow
@@ -49,7 +49,7 @@ case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#FADF8F',fg='black',\
     
  ```
 
-__Affichage et création des graphique:__ (maxence,amir)
+## __Affichage et création des graphique:__ (maxence,amir)
          
 * utilisation de pandas pour créer des graphiques
 * utilisation de camembert:
