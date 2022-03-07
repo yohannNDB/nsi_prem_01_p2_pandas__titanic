@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tkinter import *
 from random import randint,choice
 import string
@@ -97,7 +98,6 @@ def filtres():
         data = data[data['survived'] == 1]
     if état.get() == 2:
         data = data[data['survived'] == 0]
-    label_phrases()
     total_lignes = len(data.axes[0]) 
     lignes_fin = lignes_début - total_lignes
     return total_lignes,lignes_fin
@@ -236,7 +236,7 @@ window.resizable(width=False,height=False)
 
 #image de fond
 image_fond = PhotoImage(file = "fond_papier.gif")
-image_fond2 = PhotoImage(file = "fond_papier2.gif")
+image_fond2 = PhotoImage(file = "fond2.gif")
 
 #image du bouton
 image_bouton = PhotoImage(file="bouton_fond2.gif")
