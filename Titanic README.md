@@ -66,8 +66,9 @@ def afficher():
     plt.show()
 
 ```
-
-
+*Les différents bug possible*
+* animation des bulles peut faire crash la window(il suffit de relancer le programme en général ca marche, sinon raccourcir la boucle d'apparition des bulles)
+* boutons mettent du temps a s'afficher (attendre l'apparition ne pas spam-click)
 
 
 
