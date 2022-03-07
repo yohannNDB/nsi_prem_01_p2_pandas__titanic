@@ -27,7 +27,15 @@ Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement consid
 * numpy
 
 ## __Fichiers nécessaires:__
-Pour faire fonctionner notre projet, il faut télécharger certaines images contenu dans interface graphique ainsi que le fichier excel contenant les données du titanic s'appellant "titanic3.xls"
+Pour faire fonctionner notre projet, il faut télécharger certaines images contenu dans:
+* interface graphique
+    * bouton_fond2.gif
+    * bulle_fond.gif
+    * fond2.gif
+    * fond_papier.gif
+    * titanic.ico
+ * base de donnée: titanic3.xls
+
 
 ## __Interface graphique:__ (louis, yohann)
 
