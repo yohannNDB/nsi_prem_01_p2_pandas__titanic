@@ -26,7 +26,8 @@ Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement consid
 * matplotlib
 * numpy
 
-
+## __Fichiers nécessaires:__
+Pour faire fonctionner notre projet, il faut télécharger certaines images contenu dans interface graphique ainsi que le fichier excel contenant les données du titanic s'appellant "titanic3.xls"
 
 ## __Interface graphique:__ (louis, yohann)
 
@@ -52,10 +53,10 @@ case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#FADF8F',fg='black',\
 
 ## __Affichage et création des graphique:__ (maxence,amir)
          
-* utilisation de pandas pour créer des graphiques
+* utilisation de pandas pour lire le fichier excel et pour faire un tri dans les données qui nous intéressent
 * utilisation de camembert:
 ```
-def afficher():
+def afficher_graphique():
     x = filtres()
     plt.pie(x, labels = ['Population visée', 'Reste population'],
     colors = ['red', '#40E0D0'],
