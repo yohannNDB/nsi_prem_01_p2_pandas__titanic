@@ -52,7 +52,7 @@ Pour faire fonctionner notre projet, il faut télécharger certaines images cont
 case_theme4_option1 = Radiobutton(window,text ='Oui',bg='#FADF8F',fg='black',\
                         font=("Roman",15),activeforeground='white',
                         activebackground='#048B9A',variable=état,value=1)
-    case_theme4_option2 = Radiobutton(window,text ='Non',bg='#FADF8F',fg='black',\
+case_theme4_option2 = Radiobutton(window,text ='Non',bg='#FADF8F',fg='black',\
                         font=("Roman",15),activeforeground='white',
                         activebackground='#048B9A',variable=état,value=2)
 
