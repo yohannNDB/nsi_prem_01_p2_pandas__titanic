@@ -3,7 +3,7 @@
                                                         
 Participants: Amir Kemache, Louis Milliers, Yohann Pouillieute, Maxence Guibal
 ## Notre projet:
-A partir de la base de statistique du naufrage du titanic nous créons des graphiques comparant plusieurs informations. Notre projet comporte 267 lignes de code.
+A partir de la base de statistique du naufrage du titanic nous créons des graphiques comparant plusieurs filtres. Notre projet comporte 267 lignes de code.
                                                        
 ## __Informations sur le naufrage du titanic:__
 ![photo du titanic](http://c.files.bbci.co.uk/1C60/production/_118046270_gettyimages-877330410.jpg)
